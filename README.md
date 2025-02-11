@@ -45,7 +45,7 @@
 
 Author: Juan Gonzalo Quiroz Cadavid
 
-My partner is Martin, [portfolio link](https://github.com/partner/iot-portfolio)
+My partner is Martin, [portfolio link]([https://github.com/partner/iot-portfolio](https://github.com/LogicLobster/IoT-Tartu-Spring25)
 
 In my team for the final project, I also had the following members:
 - <replace these pointy brackets with their full name>, [portfolio link](https://github.com/partner/iot-portfolio)
