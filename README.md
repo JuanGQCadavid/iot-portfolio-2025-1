@@ -5,11 +5,11 @@
 ## General details:
 
 * **Author**: Juan Gonzalo Quiroz Cadavid
-* **partner**: Martinm aka [LogicLobster](https://github.com/LogicLobster/IoT-Tartu-Spring25)
-* project repository: TBD
+* **Partner**: Martinm aka [LogicLobster](https://github.com/LogicLobster/IoT-Tartu-Spring25)
+* **Project repository**: TBD
 
 ## Guideline:
-* **profile and expectations**: [here](Module01/README.md#task-personal-profile).
+* **Profile and expectations**: [here](Module01/README.md#task-personal-profile).
 
 ## Table of Contents
 
