@@ -41,7 +41,7 @@ Synchronization of huge amounts fo real-time data and decision planning/action a
 * Inspirational:
 
 ## Reflection 1
-[Reflection 1](Reflections/ref01.md)
+[Reflection 1](../Reflections/ref01.md)
 
 ## JSON
 [Flow](./flows.json)
