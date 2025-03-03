@@ -12,9 +12,6 @@ We cover primarily circuits and communication. We try different methods for comm
 
 It is hard to think of something; in general, the sessions are pretty good! Maybe  I would prefer, instead of multiple mini projects, one big project to build together during the labs. Also, emphasizing the synchronization of different MCUs could be good!
 
-## Catalog
-
-* Catalog could be accessed here: [catalog.md](../catalog.md)
 
 ## Task 1
 
