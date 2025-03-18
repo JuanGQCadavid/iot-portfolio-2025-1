@@ -61,6 +61,21 @@ client.publish("test/output", extend_msg.c_str());
 
 --- 
 
+This time intenrrupts crasshes due to the sleep.
+
+> Main code: [main.cpp](./code/simplebreak/src/main_4.cpp)
+
+``` c
+void ICACHE_RAM_ATTR handleInterrupt() {
+ interruptFlag = true;
+//  delay(1000); // Blocking delay
+}
+```
+
+![Blink image](./pictures/interrup.png)
+
+--- 
+
 
 <!-- 
 ### Task  - 
