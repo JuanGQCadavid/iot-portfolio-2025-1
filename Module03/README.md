@@ -32,51 +32,38 @@ Steps:
 * install MyMQTT on a phone and test it, connect to the network before and use the address 192.168.14.1:1883
 * Enjoy!
 
-> Main code: [main.cpp](./code/Blink3/src/main.cpp)
-![Blink image](./pictures/blink.jpg)
-![Blink image](./pictures/blink_2.JPG)
----
-![Blink image](./pictures/blink.gif)
-
 ### Task - Mini Project: IoTempower networking
 
-**Notes** : 
+**Notes** : For this project we use the iot cli, all good. We avoid using the usb tethering as our station is connected by WAN, but we did WiFi set up too.
 
-> Main code: [main.cpp](./code/Blink3/src/main.cpp)
-![Blink image](./pictures/blink.jpg)
-![Blink image](./pictures/blink_2.JPG)
----
-![Blink image](./pictures/blink.gif)
+![Blink image](./pictures/1.1.jpeg)
+![Blink image](./pictures/1.2.jpeg)
 
 ### Task - Mini Project: FirstAid station emergency button
 
-**Notes** : 
+**Notes** : For this project we set up a client on the arduino using the libraries, then we send the message to the borker everytime the pin od the bottom was HIGH
 
-> Main code: [main.cpp](./code/Blink3/src/main.cpp)
-![Blink image](./pictures/blink.jpg)
-![Blink image](./pictures/blink_2.JPG)
+> Main code: [main.cpp](./code/bottonMod3/src/main.cpp)
+
 ---
-![Blink image](./pictures/blink.gif)
+![Blink image](./pictures/2.1.jpeg)
+![Blink image](./pictures/2.2.jpeg)
+
 
 ### Task - Mini Project: MQTT listens everywhere
 
-**Notes** : 
+**Notes** : For this one we add listeners everywhere.
 
-> Main code: [main.cpp](./code/Blink3/src/main.cpp)
-![Blink image](./pictures/blink.jpg)
-![Blink image](./pictures/blink_2.JPG)
+![Blink image](./pictures/3.1.jpeg)
+![Blink image](./pictures/3.2.jpeg)
 ---
-![Blink image](./pictures/blink.gif)
+![Blink image](./pictures/3.3.gif)
 
 ### Task - Mini Project: remote access to the gateway
 
-**Notes** : 
+**Notes** : Tuneling configuration as showed in class.
 
-> Main code: [main.cpp](./code/Blink3/src/main.cpp)
-![Blink image](./pictures/blink.jpg)
-![Blink image](./pictures/blink_2.JPG)
----
-![Blink image](./pictures/blink.gif)
+![Blink image](./pictures/4.jpeg)
 
 
 <!-- 
