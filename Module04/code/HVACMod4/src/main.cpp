@@ -2,18 +2,25 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
+#include <OneWire.h>
+#include <DallasTemperature.h>
+
+
 // Update these with values suitable for your network.
 
 const char* ssid = "IT_guys_11";
 const char* password = "iotempire";
 const char* mqtt_server = "192.168.14.1";
 
+#define ONE_WIRE_BUS D2
+OneWire oneWire(ONE_WIRE_BUS);
+DallasTemperature sensors(&oneWire);
+
 WiFiClient espClient;
 PubSubClient client(espClient);
 unsigned long lastMsg = 0;
 #define MSG_BUFFER_SIZE	(50)
 char msg[MSG_BUFFER_SIZE];
-int value = 0;
 
 void setup_wifi() {
 
@@ -36,22 +43,8 @@ void setup_wifi() {
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
-}
 
-void callback(char* topic, byte* payload, unsigned int length) {
-  Serial.print("Message arrived [");
-  Serial.print(topic);
-  Serial.print("] ");
-  for (int i = 0; i < length; i++) {
-    Serial.print((char)payload[i]);
-  }
-  Serial.println();
-  if ((char)payload[0] == '1') {
-    digitalWrite(BUILTIN_LED, LOW);
-  } else {
-    digitalWrite(BUILTIN_LED, HIGH); 
-  }
-
+  sensors.begin();
 }
 
 void reconnect() {
@@ -61,8 +54,7 @@ void reconnect() {
     clientId += String(random(0xffff), HEX);
     if (client.connect(clientId.c_str())) {
       Serial.println("connected");
-      client.publish("outTopic", "hello world");
-      client.subscribe("inTopic");
+      client.publish("status", "Temperature node connected");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -73,11 +65,9 @@ void reconnect() {
 }
 
 void setup() {
-  pinMode(BUILTIN_LED, OUTPUT);
   Serial.begin(115200);
   setup_wifi();
   client.setServer(mqtt_server, 1883);
-  client.setCallback(callback);
 }
 
 void loop() {
@@ -88,12 +78,12 @@ void loop() {
   client.loop();
 
   unsigned long now = millis();
-  if (now - lastMsg > 1000) {
+  if (now - lastMsg > 2000) {
     lastMsg = now;
-    ++value;
-    snprintf (msg, MSG_BUFFER_SIZE, "hello world #%ld", value);
-    Serial.print("Publish message: ");
-    Serial.println(msg);
-    client.publish("outTopic", msg);
+    sensors.requestTemperatures(); 
+    snprintf (msg, MSG_BUFFER_SIZE, "%.2f", sensors.getTempCByIndex(0));
+    Serial.print("Celsius temperature: ");
+    Serial.println(msg); 
+    client.publish("temp-measure/temp1", msg);
   }
 }
