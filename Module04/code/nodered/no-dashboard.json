@@ -1,0 +1,137 @@
+[
+    {
+        "id": "18793b42fe722f54",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "334ff4c345b22db0",
+        "type": "mqtt in",
+        "z": "18793b42fe722f54",
+        "name": "",
+        "topic": "#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "776cbb2c3bf537ca",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 200,
+        "wires": [
+            [
+                "59483df92f8e5b57"
+            ]
+        ]
+    },
+    {
+        "id": "59483df92f8e5b57",
+        "type": "debug",
+        "z": "18793b42fe722f54",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "820b76841a396b18",
+        "type": "mqtt in",
+        "z": "18793b42fe722f54",
+        "name": "",
+        "topic": "temp-measure/temp1",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "776cbb2c3bf537ca",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 360,
+        "y": 280,
+        "wires": [
+            [
+                "5bcb8308311ccfd1"
+            ]
+        ]
+    },
+    {
+        "id": "5bcb8308311ccfd1",
+        "type": "function",
+        "z": "18793b42fe722f54",
+        "name": "function 1",
+        "func": "var temp = msg.payload;\n\nif (temp >= 28) {\n    return {\n        payload: \"on\"\n    };\n}\nreturn {\n    payload: \"off\"\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "e56904aea084d7cb"
+            ]
+        ]
+    },
+    {
+        "id": "e56904aea084d7cb",
+        "type": "mqtt out",
+        "z": "18793b42fe722f54",
+        "name": "",
+        "topic": "switch/r1/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "776cbb2c3bf537ca",
+        "x": 390,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "776cbb2c3bf537ca",
+        "type": "mqtt-broker",
+        "name": "mango",
+        "broker": "192.168.14.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

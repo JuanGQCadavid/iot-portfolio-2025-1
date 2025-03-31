@@ -11,7 +11,7 @@ PubSubClient client(espClient);
 
 unsigned long lastMsg = 0;
 #define MSG_BUFFER_SIZE	(50)
-#define RELEPIN	D1
+#define RELEPIN	D2
 
 char msg[MSG_BUFFER_SIZE];
 
