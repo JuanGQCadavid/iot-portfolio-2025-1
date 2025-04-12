@@ -106,6 +106,8 @@ void ICACHE_RAM_ATTR handleInterrupt() {
 
 ### Task - Node-RED bigger integration
 
+![Blink image](./pictures/node-red-no-dash.png)
+
 > Node red code: [main.cpp](./nodered/no-dashboard.json)
 
 > Video: [main.cpp](./videos/3_1.mp4)
@@ -115,7 +117,11 @@ void ICACHE_RAM_ATTR handleInterrupt() {
 
 ### Task - Node-RED Dashboard
 
-> Node red code: [main.cpp](./nodered/full-integration.json)
+![Blink image](./pictures/node-red-dash.png)
+
+![Blink image](./pictures/dash.png)
+
+> Node red code: [main.cpp](./nodered/dashboard.json)
 
 > Video: [main.cpp](./videos/3_2.mp4)
 
