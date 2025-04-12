@@ -14,7 +14,7 @@
 ### Reflection 7
 [Reflection 5](../Reflections/ref07.md)
 
-## Tasks
+## Tasks - Week 1
 
 ### Task - Crash!
 
@@ -75,6 +75,41 @@ void ICACHE_RAM_ATTR handleInterrupt() {
 ![Blink image](./pictures/interrup.png)
 
 --- 
+
+## Tasks - Week 2
+
+
+## Tasks - Week 3
+
+
+### Task  - Project: Full Access Control system in Node-RED
+
+**Notes** : For this project we simualte the entrance door. It could be open by two cards (One for Martin, one for Juan) and a proximity sensor for the dog, the display will say a greeting message and the door will be opened. Furthermore, there will be a greeting message from nodered dashboard which will be located on the door, showing also the status of the door.
+
+
+> RFID Reader: [main.cpp](./code/RFIDreaderMOD4/src/main.cpp)
+
+> Proximity sensor Reader: [main.cpp](./code/DistanceSensor/src/main.cpp)
+
+> Display code: [main.cpp](./code/OLED_MOD_4/src/main.cpp)
+
+> Door (Relee with actuator) code: [main.cpp](./code/HVAC_AC_Mod4/src/main.cpp)
+
+
+> Node red integrator: [main.cpp](./nodered/full-integration.json)
+
+![Blink image](./pictures/3_Project_1.jpg)
+![Blink image](./pictures/3_Project_5.jpg)
+![Blink image](./pictures/3_Project_3.jpg)
+![Blink image](./pictures/3_Project_4.jpg)
+![Blink image](./pictures/3_Project_6.jpg)
+![Blink image](./pictures/3_Project_7.jpg)
+
+---
+
+> Video all working: [3_project.mp4](./videos/3_project.mp4)
+
+
 
 
 <!-- 

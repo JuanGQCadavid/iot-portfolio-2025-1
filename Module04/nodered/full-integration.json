@@ -1,0 +1,359 @@
+[
+    {
+        "id": "261af51a31ba9255",
+        "type": "mqtt in",
+        "z": "f58f604a9c1503bd",
+        "name": "",
+        "topic": "rfid-sensor/uid",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "776cbb2c3bf537ca",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2180,
+        "y": 140,
+        "wires": [
+            [
+                "816ec75c087f6b00",
+                "ca3924cdceb58685"
+            ]
+        ]
+    },
+    {
+        "id": "c94d9dc51408367a",
+        "type": "mqtt in",
+        "z": "f58f604a9c1503bd",
+        "name": "",
+        "topic": "distancesensor/mm",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "776cbb2c3bf537ca",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2150,
+        "y": 400,
+        "wires": [
+            [
+                "d2d143ea74f5f320"
+            ]
+        ]
+    },
+    {
+        "id": "d2d143ea74f5f320",
+        "type": "function",
+        "z": "f58f604a9c1503bd",
+        "name": "function 4",
+        "func": "\nreturn {\n        payload: \"on\"\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2340,
+        "y": 400,
+        "wires": [
+            [
+                "753f2376c11f588d",
+                "16d1ae3c57299bbd",
+                "52df04feec7ac85b"
+            ]
+        ]
+    },
+    {
+        "id": "753f2376c11f588d",
+        "type": "mqtt out",
+        "z": "f58f604a9c1503bd",
+        "name": "",
+        "topic": "switch/r1/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "776cbb2c3bf537ca",
+        "x": 3030,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "816ec75c087f6b00",
+        "type": "function",
+        "z": "f58f604a9c1503bd",
+        "name": "Identify users",
+        "func": "var temp = msg.payload;\n\nif (temp == \"F3944097\" || temp == \"B38AEF09\") {\n    return {\n        payload: \"on\"\n    }\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2400,
+        "y": 200,
+        "wires": [
+            [
+                "753f2376c11f588d",
+                "21a84851743ccfee"
+            ]
+        ]
+    },
+    {
+        "id": "21a84851743ccfee",
+        "type": "delay",
+        "z": "f58f604a9c1503bd",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 2520,
+        "y": 300,
+        "wires": [
+            [
+                "d1ac54b1aa156706"
+            ]
+        ]
+    },
+    {
+        "id": "d1ac54b1aa156706",
+        "type": "function",
+        "z": "f58f604a9c1503bd",
+        "name": "Close the door",
+        "func": "\nreturn {\n        payload: \"off\"\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2700,
+        "y": 300,
+        "wires": [
+            [
+                "753f2376c11f588d"
+            ]
+        ]
+    },
+    {
+        "id": "cad3e85c51825d20",
+        "type": "mqtt out",
+        "z": "f58f604a9c1503bd",
+        "name": "",
+        "topic": "rfid-sensor/uid",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "776cbb2c3bf537ca",
+        "x": 3020,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "16d1ae3c57299bbd",
+        "type": "function",
+        "z": "f58f604a9c1503bd",
+        "name": "Hi Puppy!",
+        "func": "var temp = msg.payload;\n\nreturn {\n        payload: \"Puppy!\"\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2680,
+        "y": 400,
+        "wires": [
+            [
+                "cad3e85c51825d20",
+                "ca3924cdceb58685"
+            ]
+        ]
+    },
+    {
+        "id": "52df04feec7ac85b",
+        "type": "delay",
+        "z": "f58f604a9c1503bd",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 2520,
+        "y": 360,
+        "wires": [
+            [
+                "d1ac54b1aa156706"
+            ]
+        ]
+    },
+    {
+        "id": "97385b11fb89fa99",
+        "type": "mqtt in",
+        "z": "f58f604a9c1503bd",
+        "name": "",
+        "topic": "status/ac",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "776cbb2c3bf537ca",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 2120,
+        "y": 500,
+        "wires": [
+            [
+                "f87a4dae56fd9f98"
+            ]
+        ]
+    },
+    {
+        "id": "c82b7938a75617af",
+        "type": "ui_text",
+        "z": "f58f604a9c1503bd",
+        "group": "01f7025b2734bbd9",
+        "order": 6,
+        "width": "6",
+        "height": "1",
+        "name": "Colored text",
+        "label": "<font color={{msg.labelcolor}}>The door is</font>",
+        "format": "<font color= {{msg.color}}, size=14> {{msg.payload}}</font>",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 2490,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "f87a4dae56fd9f98",
+        "type": "function",
+        "z": "f58f604a9c1503bd",
+        "name": "function 5",
+        "func": "var temp = msg.payload;\n\n\nif (temp.includes(\"ON\")) {\n    return {\n        payload: \"The door is open\",\n        color: \"green\"\n    };\n}\nreturn {\n    payload: \"The door is close\",\n    color: \"yellow\"\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2300,
+        "y": 500,
+        "wires": [
+            [
+                "c82b7938a75617af"
+            ]
+        ]
+    },
+    {
+        "id": "3e110cdc4bcdbaba",
+        "type": "ui_audio",
+        "z": "f58f604a9c1503bd",
+        "name": "",
+        "group": "01f7025b2734bbd9",
+        "voice": "Good News",
+        "always": "",
+        "x": 2880,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ca3924cdceb58685",
+        "type": "function",
+        "z": "f58f604a9c1503bd",
+        "name": "Greetings",
+        "func": "var temp = msg.payload;\n\nif (temp == \"F3944097\") {\n    temp = \"Martin\"\n} else if ( temp == \"B38AEF09\") {\n    temp = \"Juan\"\n} else {\n    temp = \"Doggi\"\n}\n\n\nreturn {\n    payload: \"Whats upp \" + temp + \", Welcome back!\"\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2680,
+        "y": 140,
+        "wires": [
+            [
+                "3e110cdc4bcdbaba"
+            ]
+        ]
+    },
+    {
+        "id": "776cbb2c3bf537ca",
+        "type": "mqtt-broker",
+        "name": "mango",
+        "broker": "192.168.14.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "01f7025b2734bbd9",
+        "type": "ui_group",
+        "name": "AC",
+        "tab": "725d577fbb3ecd44",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "725d577fbb3ecd44",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
