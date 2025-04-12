@@ -14,7 +14,7 @@
 ### Reflection 7
 [Reflection 5](../Reflections/ref07.md)
 
-## Tasks - Week 1
+## Tasks - Session 1
 
 ### Task - Crash!
 
@@ -76,10 +76,58 @@ void ICACHE_RAM_ATTR handleInterrupt() {
 
 --- 
 
-## Tasks - Week 2
+## Tasks - Session 2
+
+### Task  - Simulator in Python
+
+**Notes** : 
+
+> integration code: [integration.py](./code/iotknit-demo/integration.py)
+
+> simulators code: [simulators.py](./code/iotknit-demo/simulators.py)
+
+![Blink image](./pictures/2_2_1.png)
+
+![Blink image](./pictures/2_2_2.png)
 
 
-## Tasks - Week 3
+### Task - Mini project: Restricted HVAC system and Relay
+
+**Notes** : 
+
+> Main code: [main.cpp](./code/iotknit-demo/)
+
+![Blink image](./pictures/2_1_1.png)
+
+![Blink image](./pictures/2_1_2.png)
+
+![Blink image](./pictures/2_1_3.png)
+
+
+### Task - Node-RED bigger integration
+
+> Node red code: [main.cpp](./nodered/no-dashboard.json)
+
+> Video: [main.cpp](./videos/3_1.mp4)
+
+![Blink image](./pictures/2_1.gif)
+
+
+### Task - Node-RED Dashboard
+
+> Node red code: [main.cpp](./nodered/full-integration.json)
+
+> Video: [main.cpp](./videos/3_2.mp4)
+
+![Blink image](./pictures/2_2.gif)
+
+## Tasks - Session 3
+
+### Task  - Mini Project: Install SNodeC on the MANGO router
+
+![Blink image](./pictures/3_mini_1.png)
+
+![Blink image](./pictures/3_mini_2.png)
 
 
 ### Task  - Project: Full Access Control system in Node-RED
