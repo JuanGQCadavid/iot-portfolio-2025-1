@@ -1,4 +1,4 @@
-# Module 2
+# Module 4
 
 > **_NOTE:_**  All the work was with my teammate Martinm aka [LogicLobster](https://github.com/LogicLobster/IoT-Tartu-Spring25)
 
