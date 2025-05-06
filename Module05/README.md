@@ -1,4 +1,4 @@
-# Module 4
+# Module 5
 
 > **_NOTE:_**  All the work was with my teammate Martinm aka [LogicLobster](https://github.com/LogicLobster/IoT-Tartu-Spring25)
 
@@ -6,162 +6,75 @@
 
 * Catalog could be accessed here: [catalog.md](../catalog.md)
 
-## Reflections
-
-### Reflection 6
-[Reflection 4](../Reflections/ref06.md)
-
-### Reflection 7
-[Reflection 5](../Reflections/ref07.md)
 
 ## Tasks - Session 1
 
-### Task - Crash!
 
-Divided by 0
+### Task  - Mini Project: First Node
 
-> Main code: [main.cpp](./code/simplebreak/src/main.cpp)
+**Notes** : Done using iot empire
 
-``` c
-value = value/0;
-snprintf (msg, MSG_BUFFER_SIZE, "hello world #%ld", value);
-Serial.print("Publish message: ");
-```
+> Main code: [main.cpp](./code/node1/setup.cpp)
 
-![Blink image](./pictures/div0.png)
+### Task  - Mini Project: Second Node
 
---- 
+**Notes** : Done using iot empire
 
-> Main code: [main.cpp](./code/simplebreak/src/main_2.cpp)
+> Main code: [main.cpp](./code/node2/setup.cpp)
 
-``` c
---value;
-snprintf (msg, MSG_BUFFER_SIZE, "hello world #%ld division %ld", value, 100/value);
-```
+### Mini Project: rebuild access control with IoTempower
 
-![Blink image](./pictures/div0_2.png)
+**Notes** : Done using iot empire
 
---- 
+> Distance code: [main.cpp](./code/distance/setup.cpp)
 
-> Main code: [main.cpp](./code/simplebreak/src/main_3.cpp)
+> Lock code: [main.cpp](./code/lock/setup.cpp)
 
-``` c
-char* msg = new char[512]; // Allocate space
-sprintf(msg, "Hello at %ld.", millis());
+> Oled code: [main.cpp](./code/oled/setup.cpp)
 
-static String extend_msg;
-extend_msg += msg;
-extend_msg += "And more";
+> rfid code: [main.cpp](./code/rfid/setup.cpp)
 
-// Publish without freeing memory
-client.publish("test/output", extend_msg.c_str());
-```
+> Nodered: [nodered.json](./node-red/nodered.json)
 
-![Blink image](./pictures/space.png)
+![Blink image](./picture/1.jpeg)
 
---- 
+![Blink image](./picture/2.jpeg)
 
-This time intenrrupts crasshes due to the sleep.
+> Video all working: [1.mp4](./videos/1.mp4)
 
-> Main code: [main.cpp](./code/simplebreak/src/main_4.cpp)
+### Mini Project: rebuild access control with IoTempower
 
-``` c
-void ICACHE_RAM_ATTR handleInterrupt() {
- interruptFlag = true;
-//  delay(1000); // Blocking delay
-}
-```
+**Notes** : Done using iot empire
 
-![Blink image](./pictures/interrup.png)
+> Distance code: [main.cpp](./code/distance/setup.cpp)
 
---- 
+> Temperature code: [main.cpp](./code/temperature/setup.cpp)
+
+![Blink image](./picture/3.jpeg)
+
+![Blink image](./picture/4.png)
 
 ## Tasks - Session 2
 
-### Task  - Simulator in Python
+### Project: Liquids Measuring Project
 
-**Notes** : 
+**Notes** : Done using iot empire
 
-> integration code: [integration.py](./code/iotknit-demo/integration.py)
+> lazer code: [main.cpp](./code/lazer/setup.cpp)
 
-> simulators code: [simulators.py](./code/iotknit-demo/simulators.py)
+> moistureCapacitiveSensor code: [main.cpp](./code/moistureCapacitiveSensor/setup.cpp)
 
-![Blink image](./pictures/2_2_1.png)
+![Blink image](./picture/5.jpeg)
 
-![Blink image](./pictures/2_2_2.png)
+![Blink image](./picture/6.jpeg)
 
+![Blink image](./picture/7.jpeg)
 
-### Task - Mini project: Restricted HVAC system and Relay
+![Blink image](./picture/8.jpeg)
 
-**Notes** : 
+![Blink image](./picture/9.jpeg)
 
-> Main code: [main.cpp](./code/iotknit-demo/)
-
-![Blink image](./pictures/2_1_1.png)
-
-![Blink image](./pictures/2_1_2.png)
-
-![Blink image](./pictures/2_1_3.png)
-
-
-### Task - Node-RED bigger integration
-
-![Blink image](./pictures/node-red-no-dash.png)
-
-> Node red code: [main.cpp](./nodered/no-dashboard.json)
-
-> Video: [main.cpp](./videos/3_1.mp4)
-
-![Blink image](./pictures/2_1.gif)
-
-
-### Task - Node-RED Dashboard
-
-![Blink image](./pictures/node-red-dash.png)
-
-![Blink image](./pictures/dash.png)
-
-> Node red code: [main.cpp](./nodered/dashboard.json)
-
-> Video: [main.cpp](./videos/3_2.mp4)
-
-![Blink image](./pictures/2_2.gif)
-
-## Tasks - Session 3
-
-### Task  - Mini Project: Install SNodeC on the MANGO router
-
-![Blink image](./pictures/3_mini_1.png)
-
-![Blink image](./pictures/3_mini_2.png)
-
-
-### Task  - Project: Full Access Control system in Node-RED
-
-**Notes** : For this project we simualte the entrance door. It could be open by two cards (One for Martin, one for Juan) and a proximity sensor for the dog, the display will say a greeting message and the door will be opened. Furthermore, there will be a greeting message from nodered dashboard which will be located on the door, showing also the status of the door.
-
-
-> RFID Reader: [main.cpp](./code/RFIDreaderMOD4/src/main.cpp)
-
-> Proximity sensor Reader: [main.cpp](./code/DistanceSensor/src/main.cpp)
-
-> Display code: [main.cpp](./code/OLED_MOD_4/src/main.cpp)
-
-> Door (Relee with actuator) code: [main.cpp](./code/HVAC_AC_Mod4/src/main.cpp)
-
-
-> Node red integrator: [main.cpp](./nodered/full-integration.json)
-
-![Blink image](./pictures/3_Project_1.jpg)
-![Blink image](./pictures/3_Project_5.jpg)
-![Blink image](./pictures/3_Project_3.jpg)
-![Blink image](./pictures/3_Project_4.jpg)
-![Blink image](./pictures/3_Project_6.jpg)
-![Blink image](./pictures/3_Project_7.jpg)
-
----
-
-> Video all working: [3_project.mp4](./videos/3_project.mp4)
+![Blink image](./picture/10.jpeg)
 
 
 
@@ -179,5 +92,7 @@ void ICACHE_RAM_ATTR handleInterrupt() {
 
  -->
 
+> Node red integrator: [main.cpp](./nodered/full-integration.json)
+> Video all working: [3_project.mp4](./videos/3_project.mp4)
 
 
