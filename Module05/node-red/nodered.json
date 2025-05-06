@@ -1,0 +1,186 @@
+[
+    {
+        "id": "2cc164a8eec84ada",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bd7b812ce689e362",
+        "type": "mqtt in",
+        "z": "2cc164a8eec84ada",
+        "name": "",
+        "topic": "rfid/reader/uid",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "776cbb2c3bf537ca",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 300,
+        "wires": [
+            [
+                "1bbc802b815cf781",
+                "b092f663388f93db",
+                "141536a936af0eaa"
+            ]
+        ]
+    },
+    {
+        "id": "ca8b4270d7738e7a",
+        "type": "mqtt out",
+        "z": "2cc164a8eec84ada",
+        "name": "",
+        "topic": "oled/oled",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "776cbb2c3bf537ca",
+        "x": 640,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "1bbc802b815cf781",
+        "type": "function",
+        "z": "2cc164a8eec84ada",
+        "name": "function 6",
+        "func": "// get the message\nlet text = msg.payload;\n\nlet message = \"&&clear\\nHello\\n\" + text;\n\nreturn {\n    topic: \"oled/oled\",\n    payload: message\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 100,
+        "wires": [
+            [
+                "ca8b4270d7738e7a"
+            ]
+        ]
+    },
+    {
+        "id": "141536a936af0eaa",
+        "type": "delay",
+        "z": "2cc164a8eec84ada",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 360,
+        "y": 220,
+        "wires": [
+            [
+                "59a81ac1f8dec617"
+            ]
+        ]
+    },
+    {
+        "id": "59a81ac1f8dec617",
+        "type": "function",
+        "z": "2cc164a8eec84ada",
+        "name": "function 7",
+        "func": "let message = \"&&clear\\nUse your Card,\\nMotherfucker,\\nplease!\";\n\nreturn {\n    topic: \"oled/oled\",\n    payload: message\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 220,
+        "wires": [
+            [
+                "ca8b4270d7738e7a"
+            ]
+        ]
+    },
+    {
+        "id": "49aba911be0474ef",
+        "type": "mqtt out",
+        "z": "2cc164a8eec84ada",
+        "name": "",
+        "topic": "lock/door/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "776cbb2c3bf537ca",
+        "x": 570,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b092f663388f93db",
+        "type": "function",
+        "z": "2cc164a8eec84ada",
+        "name": "",
+        "func": "let message = \"on\";\nlet text = msg.payload;\n\nif (text == \"none\")\n{\n    return {\n        topic: \"lock/door/set\",\n        payload: \"off\"\n    };\n} \n\nreturn {\n    topic: \"lock/door/set\",\n    payload: message\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 395,
+        "y": 340,
+        "wires": [
+            [
+                "49aba911be0474ef"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "776cbb2c3bf537ca",
+        "type": "mqtt-broker",
+        "name": "mango",
+        "broker": "192.168.14.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

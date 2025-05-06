@@ -1,0 +1,183 @@
+[
+    {
+        "id": "d0d54d170c1e6ae8",
+        "type": "influxdb out",
+        "z": "6963bcf623f4be11",
+        "influxdb": "3ed71970a52c4193",
+        "name": "",
+        "measurement": "distance",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "iot",
+        "bucket": "module5",
+        "x": 710,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "1c8cb5d47a13cbf0",
+        "type": "mqtt in",
+        "z": "6963bcf623f4be11",
+        "name": "",
+        "topic": "distance/dist",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "776cbb2c3bf537ca",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "f0bf7d80ab25dd48"
+            ]
+        ]
+    },
+    {
+        "id": "f0bf7d80ab25dd48",
+        "type": "function",
+        "z": "6963bcf623f4be11",
+        "name": "function 8",
+        "func": "return {\n    measurement: \"distance\",\n    payload: {\n        value: parseFloat(msg.payload)\n    },\n    tags: {\n        sensor: \"dist1\"\n    }\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "d0d54d170c1e6ae8",
+                "94c5f8e8670def03"
+            ]
+        ]
+    },
+    {
+        "id": "94c5f8e8670def03",
+        "type": "debug",
+        "z": "6963bcf623f4be11",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "140e1cdfda358c1a",
+        "type": "influxdb out",
+        "z": "6963bcf623f4be11",
+        "influxdb": "3ed71970a52c4193",
+        "name": "",
+        "measurement": "temperature",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "iot",
+        "bucket": "module5",
+        "x": 760,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "86232c3e9fd4a4ef",
+        "type": "mqtt in",
+        "z": "6963bcf623f4be11",
+        "name": "",
+        "topic": "temperature/sensor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "776cbb2c3bf537ca",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 320,
+        "wires": [
+            [
+                "eda046db103a0e02"
+            ]
+        ]
+    },
+    {
+        "id": "eda046db103a0e02",
+        "type": "function",
+        "z": "6963bcf623f4be11",
+        "name": "function 9",
+        "func": "return {\n    measurement: \"temperature\",\n    payload: {\n        value: parseFloat(msg.payload)\n    },\n    tags: {\n        sensor: \"temp1\"\n    }\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "140e1cdfda358c1a"
+            ]
+        ]
+    },
+    {
+        "id": "3ed71970a52c4193",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": 8086,
+        "protocol": "http",
+        "database": "home",
+        "name": "Local InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086",
+        "timeout": 10,
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "776cbb2c3bf537ca",
+        "type": "mqtt-broker",
+        "name": "mango",
+        "broker": "192.168.14.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
